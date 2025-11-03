@@ -1,3 +1,6 @@
+<!-- File: "home.html" -->
+<!-- Dettagli: pagina principale del sito -->
+
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -5,35 +8,43 @@
 		<title>Starships - Home</title>
 		
 		<link rel="stylesheet" href="css/design.css">
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="script/jquery-3.7.1.min.js"></script>
+		<script src="script/functions.js"></script>
 	</head>
 
 	<body>
-		<h1>Classi di Starships</h1>
-		<div id="classes-container" class="grid"></div>
+		<h1 id="titoloHome">STARSHIPS PROJECT - STAR WARS</h1>
+		<div id="divClasse" class="grid"></div>
 
 		<script>
 			$(document).ready(function(){
-				$.get("https://swapi.dev/api/starships/", function(data){
-					const starships = data.results;
-					const classes = [...new Set(starships.map(s => s.starship_class))]; // classi uniche
-
+				
+				// Funzione che ritorna l'array contenente tutte le starships:
+				getAllStarships().then(function(starships){
+					
+					// Estrazione delle classi uniche:
+					const classes = estraiClassiUniche(starships);
+					
+					// Creazione dei riquadri per le classi:
 					classes.forEach(cls => {
-					  $("#classes-container").append(`
-						<div class="class-card" data-class="${cls}">
-						  <img src="images/${cls.replace(/ /g, '_')}.png" alt="${cls}" onerror="this.src='images/default.png'">
-						  <p>${cls}</p>
-						</div>
-					  `);
+						$("#divClasse").append(`
+							<div class="riquadroClasse" data-class="${cls}">
+							  <img src="images/${cls.replace(/ /g, '_')}.png" alt="${cls}" onerror="this.src='images/default.png'">
+							  <p>${cls}</p>
+							</div>
+						`);
 					});
-
-					$(".class-card").on("click", function(){
-					  const selectedClass = $(this).data("class");
-					  window.location.href = `class.html?class=${encodeURIComponent(selectedClass)}`;
+					
+					// Evento di click sui riquadri:
+					$(".riquadroClasse").on("click", function(){
+						const selectedClass = $(this).data("class");
+						window.location.href = `class.html?class=${encodeURIComponent(selectedClass)}`;
 					});
 					
 				});
 			});
 		</script>
+		
 	</body>
+	
 </html>

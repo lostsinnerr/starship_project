@@ -1,51 +1,102 @@
+/* File: "design.css" */
+/* Dettagli: contiene l'aspetto grafico del sito */
+
+/* === === SETTAGGI TAG GENERICI === === */
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0b0c10;
-  color: #c5c6c7;
-  text-align: center;
+	font-family: Arial, sans-serif;
+	background-color: #0b0c10;
+	color: #c5c6c7;
+	text-align: center;
 }
 
 a, button {
-  color: #66fcf1;
-  text-decoration: none;
-  margin: 10px;
+	color: #66fcf1;
+	text-decoration: none; /* Rimozione sottolineatura */
+	margin: 10px;
 }
 
+/* === === CSS DELLA HOME === === */
+
+/* === TITOLO === */
+#titoloHome {
+	margin-top: 50px;
+	font-size: 3rem; /* rem -> riferimento alla root */
+}
+
+/* === DISPOSIZIONE DEI RIQUADRI === */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px;
 }
 
-.class-card {
-  border: 1px solid #45a29e;
-  padding: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-  width: 150px;
+/* === RIQUADRI === */
+.riquadroClasse {
+	border: 1px solid #45a29e;
+	padding: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+	width: 180px; /* Larghezza fissa per tutte le card */
+	height: 220px; /* Altezza fissa: tutte le card uguali */
+	background-color: #1f2833;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	overflow: hidden;
+	border-radius: 6px;
+}
+.riquadroClasse:hover { /* Passaggio del mouse */
+	background-color: #0b0c10;
+	transform: scale(1.03);
 }
 
-.class-card:hover {
-  background-color: #1f2833;
+/* === IMMAGINI NEI RIQUADRI === */
+.riquadroClasse img {
+	width: 100%;
+	height: 150px; /* Altezza fissa */
+	object-fit: cover; /* Adattamento immagine */
+	border-radius: 4px;
 }
 
-table {
-  margin: 20px auto;
-  border-collapse: collapse;
-  width: 80%;
-  color: white;
+/* === TESTI NEI RIQUADRI === */
+.riquadroClasse p {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #66fcf1;
+  text-align: center;
+  word-wrap: break-word;
 }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #45a29e;
+/* === === CSS DELLA CLASS === === */
+
+/* === TITOLO === */
+#titoloClass {
+	font-size: 4rem;
 }
 
-tr:hover {
-  background-color: #1f2833;
+/* === TABELLA === */
+#idTableClass {
+	margin: 20px auto;
+	border-collapse: collapse;
+	width: 80%;
+	color: white;
 }
 
-img {
-	width: 20px;
+/* === COLONNE === */
+#idTableClass th, td {
+	padding: 10px;
+	border: 1px solid #45a29e;
+}
+#idTableClass td {
+	cursor: pointer;
+}
+
+/* === RIGHE === */
+#idTableClass tr:hover {
+	background-color: #1f2833;
 }

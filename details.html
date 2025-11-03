@@ -1,11 +1,14 @@
+<!-- File: "details.html" -->
+<!-- Dettagli: vista nel dettaglio di una sola starship -->
+
 <!DOCTYPE html>
 <html lang="it">
 	<head>
 		<meta charset="UTF-8">
-		<title>Dettagli Starship</title>
+		<title>Starship - Details</title>
 		
 		<link rel="stylesheet" href="css/design.css">
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="script/jquery-3.7.1.min.js"></script>
 	</head>
 	<body>
 	  <a href="home.html">🏠 Home</a>
@@ -13,26 +16,29 @@
 	  <div id="details"></div>
 
 		<script>
-		$(document).ready(function(){
-		  const params = new URLSearchParams(window.location.search);
-		  const shipUrl = params.get("url");
-
-			$.get(shipUrl, function(ship){
-				$("#details").html(`
-					<h1>${ship.name}</h1>
-					<img src="images/${ship.name.replace(/ /g, '_')}.png" alt="${ship.name}" onerror="this.src='images/default.png'" height="200">
-					<ul>
-						<li><b>Modello:</b> ${ship.model}</li>
-						<li><b>Produttore:</b> ${ship.manufacturer}</li>
-						<li><b>Costo:</b> ${ship.cost_in_credits}</li>
-						<li><b>Lunghezza:</b> ${ship.length}</li>
-						<li><b>Equipaggio:</b> ${ship.crew}</li>
-						<li><b>Passeggeri:</b> ${ship.passengers}</li>
-						<li><b>Classe:</b> ${ship.starship_class}</li>
-					</ul>
-				`);
+			$(document).ready(function(){
+				
+				// Recupero l'url della starship dalla barra di ricerca:
+				const params = new URLSearchParams(window.location.search);
+				const shipUrl = params.get("url");
+				
+				// Riempio la tabella con le informazioni della starship:
+				$.get(shipUrl, function(ship){
+					$("#details").html(`
+						<h1>${ship.name}</h1>
+						<img src="images/${ship.name.replace(/ /g, '_')}.png" alt="${ship.name}" onerror="this.src='images/default.png'" height="200">
+						<ul>
+							<li><b>Modello:</b> ${ship.model}</li>
+							<li><b>Produttore:</b> ${ship.manufacturer}</li>
+							<li><b>Costo:</b> ${ship.cost_in_credits}</li>
+							<li><b>Lunghezza:</b> ${ship.length}</li>
+							<li><b>Equipaggio:</b> ${ship.crew}</li>
+							<li><b>Passeggeri:</b> ${ship.passengers}</li>
+							<li><b>Classe:</b> ${ship.starship_class}</li>
+						</ul>
+					`);
+				});
 			});
-		});
 		</script>
 	</body>
 </html>
