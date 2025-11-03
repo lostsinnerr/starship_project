@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  text-align: center;
+}
+
+a, button {
+  color: #66fcf1;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.class-card {
+  border: 1px solid #45a29e;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 150px;
+}
+
+.class-card:hover {
+  background-color: #1f2833;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #45a29e;
+}
+
+tr:hover {
+  background-color: #1f2833;
+}
+
+img {
+	width: 20px;
+}

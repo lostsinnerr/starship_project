@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8">
+		<title>Starships per classe</title>
+		
+		<link rel="stylesheet" href="css/design.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	</head>
+	<body>
+		<a href="home.html">🏠 Home</a>
+		<button onclick="history.back()">⬅️ Indietro</button>
+		<h1 id="class-title"></h1>
+		<table border="1" id="starships-table">
+			<thead>
+				<tr><th>Nome</th><th>Immagine</th></tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script>
+			$(document).ready(function(){
+				const params = new URLSearchParams(window.location.search);
+				const starshipClass = params.get("class");
+				$("#class-title").text("Classe: " + starshipClass);
+
+				$.get("https://swapi.dev/api/starships/", function(data){
+					const starships = data.results.filter(s => s.starship_class === starshipClass);
+					starships.forEach(s => {
+						$("#starships-table tbody").append(`
+							<tr data-url="${s.url}">
+								<td>${s.name}</td>
+								<td><img src="images/${s.name.replace(/ /g, '_')}.png" alt="${s.name}" onerror="this.src='images/default.png'" height="80"></td>
+							</tr>
+						`);
+					});
+
+					$("#starships-table tr").on("click", function(){
+					  const shipUrl = $(this).data("url");
+					  window.location.href = `details.html?url=${encodeURIComponent(shipUrl)}`;
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

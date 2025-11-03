@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dettagli Starship</title>
+		
+		<link rel="stylesheet" href="css/design.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	</head>
+	<body>
+	  <a href="home.html">🏠 Home</a>
+	  <button onclick="history.back()">⬅️ Indietro</button>
+	  <div id="details"></div>
+
+		<script>
+		$(document).ready(function(){
+		  const params = new URLSearchParams(window.location.search);
+		  const shipUrl = params.get("url");
+
+			$.get(shipUrl, function(ship){
+				$("#details").html(`
+					<h1>${ship.name}</h1>
+					<img src="images/${ship.name.replace(/ /g, '_')}.png" alt="${ship.name}" onerror="this.src='images/default.png'" height="200">
+					<ul>
+						<li><b>Modello:</b> ${ship.model}</li>
+						<li><b>Produttore:</b> ${ship.manufacturer}</li>
+						<li><b>Costo:</b> ${ship.cost_in_credits}</li>
+						<li><b>Lunghezza:</b> ${ship.length}</li>
+						<li><b>Equipaggio:</b> ${ship.crew}</li>
+						<li><b>Passeggeri:</b> ${ship.passengers}</li>
+						<li><b>Classe:</b> ${ship.starship_class}</li>
+					</ul>
+				`);
+			});
+		});
+		</script>
+	</body>
+</html>

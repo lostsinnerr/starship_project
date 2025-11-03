@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8">
+		<title>Starships - Home</title>
+		
+		<link rel="stylesheet" href="css/design.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	</head>
+
+	<body>
+		<h1>Classi di Starships</h1>
+		<div id="classes-container" class="grid"></div>
+
+		<script>
+			$(document).ready(function(){
+				$.get("https://swapi.dev/api/starships/", function(data){
+					const starships = data.results;
+					const classes = [...new Set(starships.map(s => s.starship_class))]; // classi uniche
+
+					classes.forEach(cls => {
+					  $("#classes-container").append(`
+						<div class="class-card" data-class="${cls}">
+						  <img src="images/${cls.replace(/ /g, '_')}.png" alt="${cls}" onerror="this.src='images/default.png'">
+						  <p>${cls}</p>
+						</div>
+					  `);
+					});
+
+					$(".class-card").on("click", function(){
+					  const selectedClass = $(this).data("class");
+					  window.location.href = `class.html?class=${encodeURIComponent(selectedClass)}`;
+					});
+					
+				});
+			});
+		</script>
+	</body>
+</html>
