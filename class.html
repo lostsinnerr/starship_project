@@ -11,10 +11,16 @@
 		<script src="script/jquery-3.7.1.min.js"></script>
 		<script src="script/functions.js"></script>
 	</head>
-	<body>
-		<a href="home.html">🏠 Home</a>
-		<button onclick="history.back()">⬅️ Indietro</button>
-		<h1 id="titoloClass"></h1>
+	
+	<body id="bodyClass">
+		
+		<nav id="navbar">
+			<button onclick="window.location.href='home.html'">🏠 Home</button>
+			<button onclick="history.back()">⬅️ Indietro</button>
+		</nav>
+		
+		<h1 id="idTitoloClass"></h1>
+		
 		<table border="1" id="idTableClass">
 			<thead>
 				<tr><th>NOME</th><th>IMMAGINE</th></tr>
@@ -26,7 +32,7 @@
 			$(document).ready(function(){
 				const params = new URLSearchParams(window.location.search);
 				const starshipClass = params.get("class");
-				$("#titoloClass").text("Classe: " + starshipClass);
+				$("#idTitoloClass").text("Classe: " + starshipClass);
 				
 				getAllStarships().then(function(allStarships){
 					
@@ -38,7 +44,7 @@
 						$("#idTableClass tbody").append(`
 							<tr data-url="${s.url}" class="rigaTableClass">
 								<td>${s.name}</td>
-								<td><img src="images/${s.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.png" alt="${s.name}" onerror="this.src='images/default.png'" height="80"></td>
+								<td><img src="images/starships/${s.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.png" alt="${s.name}" onerror="this.src='images/starships/default.png'" height="80"></td>
 							</tr>
 						`);
 					});
