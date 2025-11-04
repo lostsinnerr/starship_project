@@ -38,7 +38,7 @@
 						$("#idTableClass tbody").append(`
 							<tr data-url="${s.url}" class="rigaTableClass">
 								<td>${s.name}</td>
-								<td><img src="images/${s.name.replace(/ /g, '_')}.png" alt="${s.name}" onerror="this.src='images/default.png'" height="80"></td>
+								<td><img src="images/${s.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.png" alt="${s.name}" onerror="this.src='images/default.png'" height="80"></td>
 							</tr>
 						`);
 					});
