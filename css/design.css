@@ -141,28 +141,70 @@ a, button {
 	letter-spacing: 2px;
 }
 
-/* === IMMAGINE STARSHIP === */
+/* === BLOCCO SUPERIORE (TITOLO + IMMAGINE + FILM) === */
+#topDetails {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 60px;
+	flex-wrap: nowrap;
+	margin-bottom: 50px;
+}
 
-#starshipImageContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Centra l'immagine orizzontalmente */
-    margin: 20px 0 40px 0;   /* Spazio sopra e sotto l'immagine */
+/* LATO SINISTRO: IMMAGINE STARSHIP */
+#leftDetails {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #starshipImage {
-    width: 400px;           /* Larghezza fissa, si può adattare */
-    height: 250px;          /* Altezza fissa */
-    object-fit: cover;      /* Adatta l'immagine al contenitore */
-    border: 2px solid #45a29e;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(102, 252, 241, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	width: 400px;
+	height: 250px;
+	object-fit: cover;
+	border: 2px solid #45a29e;
+	border-radius: 10px;
+	box-shadow: 0 0 25px rgba(102, 252, 241, 0.4);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#starshipImage:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 40px rgba(102, 252, 241, 0.7);
 }
 
-#starshipImage:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(102, 252, 241, 0.7);
+/* LATO DESTRO: IMMAGINI FILMS */
+#rightDetails {
+	max-width: 500px;
+	text-align: center;
+}
+
+#rightDetails h2 {
+	font-size: 1.6rem;
+	color: #66fcf1;
+	margin-bottom: 15px;
+	text-shadow: 0 0 10px rgba(102, 252, 241, 0.6);
+}
+
+#filmsImages {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+}
+
+#filmsImages img {
+	width: 120px;
+	height: 180px;
+	object-fit: cover;
+	border: 2px solid #45a29e;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#filmsImages img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 40px rgba(102, 252, 241, 0.6);
 }
 
 /* === CONTENITORE PRINCIPALE === */
@@ -280,7 +322,9 @@ form {
 	font-weight: bold;
 	cursor: pointer;
 	transition: 0.2s;
-	width: 100%;
+	width: 98%;
+	margin: 0 auto;
+	display: block;
 }
 
 #buttonStarship:hover {

@@ -5,7 +5,7 @@
 function getAllStarships(){
 	let allStarships = [];
 	let url = "https://swapi.dev/api/starships/";
-
+	
 	function fetchPage(nextUrl){
 		
 		return $.get(nextUrl).then(function(data){
@@ -21,7 +21,7 @@ function getAllStarships(){
 			}
 		});
 	}
-
+	
 	// Avvia il caricamento dalla prima pagina
 	return fetchPage(url);
 }

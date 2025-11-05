@@ -19,14 +19,22 @@
 			<button onclick="history.back()">⬅️ Indietro</button>
 		</nav>
 		
-		<!-- CONTENITORE PRINCIPALE -->
-		<div id="containerDetails">
-		
-			<h1 id="idTitoloDetails">NOME STARSHIP</h1>
+		<h1 id="idTitoloDetails">NOME STARSHIP</h1>
 			
-			<div id="starshipImageContainer">
+		<!-- BLOCCO TITOLO + IMMAGINE + FILM -->
+		<div id="topDetails">
+			<div id="leftDetails">
 				<img id="starshipImage" src="images/starships/default.png" alt="Starship Image" onerror="this.src='images/starships/default.png'">
 			</div>
+			
+			<div id="rightDetails">
+				<h2>Appare nei seguenti film:</h2>
+				<div id="filmsImages"></div>
+			</div>
+		</div>
+		
+		<!-- CONTENITORE PRINCIPALE -->
+		<div id="containerDetails">
 			
 			<!-- Sezione sinistra: tabella -->
 			<div id="tableDetails"></div>
@@ -35,7 +43,7 @@
 			<form>
 				<table id="tableFormDetails">
 					<tr>
-						<th colspan="2">FORM STARSHIPS</th>
+						<th colspan="2">AGGIUNTA/MODIFICA CAMPI</th>
 					</tr>
 					<tr>
 						<td>NOME CAMPO</td>

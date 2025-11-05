@@ -28,6 +28,20 @@ $(document).ready(function() {
 			CLASSE: starship.starship_class
 		}
 		
+		// Si mostrano i films in cui compare:
+		if(starship.films && starship.films.length > 0){
+			$("#filmsImages").empty();
+
+			starship.films.forEach(filmUrl => {
+				const filmId = filmUrl.match(/\/(\d+)\/$/)[1];
+				const filmImg = `<img src="images/films/${filmId}.png" alt="Film ${filmId}" onerror="this.src='images/films/default.png'">`;
+				
+				$("#filmsImages").append(filmImg);
+			});
+		}else{
+			$("#rightDetails").hide();
+		}
+		
 		// Creazione iniziale della tabella:
 		creaTabellaCampi();
 		
