@@ -1,121 +1,325 @@
-/* === === FONT E GENERALI === === */
+/* File: "design.css" */
+/* Dettagli: contiene l'aspetto grafico del sito */
+
+/* === === SETTAGGI TAG GENERICI === === */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 body {
-  font-family: 'Orbitron', Arial, sans-serif;
-  background: url('../images/hyperspeed.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #c5c6c7;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+	font-family: 'Orbitron', Arial, sans-serif;
+	background: url('../images/backgrounds/space.png');
+	text-align: center;
+	color: #66fcf1;
+	text-shadow: 0 0 10px rgba(102, 252, 241, 0.6);
+	letter-spacing: 2px;
+	margin: 0;
+	padding: 0;
 }
 
-
-/* === === LINK E BUTTON === === */
 a, button {
-    color: #66fcf1;
-    text-decoration: none;
-    margin: 10px;
-    transition: color 0.3s ease;
-}
-a:hover, button:hover {
-    color: #ffffff;
+	color: #66fcf1;
+	text-decoration: none; /* Rimozione sottolineatura */
+	margin: 10px;
 }
 
-/* === === TITOLO HOME === === */
-#titoloHome {
-    margin-top: 50px;
-    font-size: 3.5rem;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px #66fcf1;
+/* === === CSS DELLA HOME === === */
+
+/* === BODY === */
+#bodyHome {
+	background: url('../images/backgrounds/space-orange.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-/* === === GRIGLIA RIQUADRI === === */
+/* === TITOLO === */
+#idTitoloHome {
+	margin-top: 50px;
+	text-align: center;
+	font-size: 3rem; /* rem -> riferimento alla root */
+}
+
+/* === DISPOSIZIONE DEI RIQUADRI === */
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px;
 }
 
-/* === === RIQUADRO CLASSE === === */
+/* === RIQUADRI === */
 .riquadroClasse {
-    border: 1px solid #45a29e;
-    padding: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 180px;
-    height: 220px;
-    background: linear-gradient(145deg, #1f2833, #0b0c10);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
+	border: 1px solid #45a29e;
+	padding: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+	width: 180px;
+	height: 220px;
+	background-color: #1f2833;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	overflow: hidden;
+	border-radius: 6px;
 }
-.riquadroClasse:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+.riquadroClasse:hover { /* Passaggio del mouse */
+	background-color: #0b0c10;
+	transform: scale(1.03);
 }
 
 /* === IMMAGINI NEI RIQUADRI === */
 .riquadroClasse img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 2px solid #66fcf1;
+	width: 100%;
+	height: 150px; /* Altezza fissa */
+	object-fit: cover; /* Adattamento immagine */
+	border-radius: 4px;
 }
 
 /* === TESTI NEI RIQUADRI === */
 .riquadroClasse p {
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #66fcf1;
-    text-align: center;
-    word-wrap: break-word;
-    text-shadow: 0 0 5px #45a29e;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #66fcf1;
+  text-align: center;
+  word-wrap: break-word;
 }
 
-/* === === TITOLO CLASS === === */
-#titoloClass {
-    font-size: 4rem;
-    text-shadow: 0 0 15px #66fcf1;
-    margin-bottom: 30px;
+/* === === CSS DELLA CLASS === === */
+
+/* === BODY === */
+#bodyClass {
+	background: url('../images/backgrounds/space.png');
+	padding-top: 60px;
 }
 
-/* === === TABELLA CLASS === === */
+/* === TITOLO === */
+#idTitoloClass {
+	font-size: 4rem;
+}
+
+/* === TABELLA === */
 #idTableClass {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 80%;
-    color: #ffffff;
-    background-color: #1f2833;
-    box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
+	margin: 20px auto;
+	border-collapse: collapse;
+	width: 80%;
+	color: white;
+	font-size: 1.5rem;
 }
 
 /* === COLONNE === */
 #idTableClass th, td {
-    padding: 12px;
-    border: 1px solid #45a29e;
+	padding: 10px;
+	border: 1px solid #45a29e;
 }
-#idTableClass th {
-    background-color: #0b0c10;
-    color: #66fcf1;
-    text-transform: uppercase;
+#idTableClass td {
+	cursor: pointer;
 }
 
 /* === RIGHE === */
 #idTableClass tr:hover {
-    background-color: #0b0c10;
-    transition: background-color 0.3s ease;
+	background-color: #1f2833;
+}
+
+/* === === CSS DELLA DETAILS === === */
+
+/* === BODY === */
+#bodyDetails {
+	background: url('../images/backgrounds/space.png');
+	padding-top: 80px;
+}
+
+/* === TITOLO === */
+#idTitoloDetails {
+	text-align: center;
+	font-size: 2.5rem;
+	color: #66fcf1;
+	text-shadow: 0 0 10px rgba(102, 252, 241, 0.6);
+	margin-bottom: 20px;
+	letter-spacing: 2px;
+}
+
+/* === IMMAGINE STARSHIP === */
+
+#starshipImageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra l'immagine orizzontalmente */
+    margin: 20px 0 40px 0;   /* Spazio sopra e sotto l'immagine */
+}
+
+#starshipImage {
+    width: 400px;           /* Larghezza fissa, si può adattare */
+    height: 250px;          /* Altezza fissa */
+    object-fit: cover;      /* Adatta l'immagine al contenitore */
+    border: 2px solid #45a29e;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(102, 252, 241, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#starshipImage:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(102, 252, 241, 0.7);
+}
+
+/* === CONTENITORE PRINCIPALE === */
+#containerDetails {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 40px;
+	padding: 20px 40px 80px;
+}
+
+/* === SEZIONE SINISTRA: TABELLA === */
+#tableDetails {
+	flex: 1;
+	min-width: 350px;
+	max-width: 600px;
+}
+
+#tableDetails table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: rgba(15, 20, 25, 0.9);
+	border: 1px solid #45a29e;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
+}
+
+#tableDetails th {
+	background-color: #1f2833;
+	color: #66fcf1;
+	padding: 10px;
+	font-size: 1.1rem;
+	border-bottom: 2px solid #45a29e;
+}
+
+#tableDetails td {
+	border: 1px solid #45a29e;
+	padding: 8px 12px;
+	color: #ffffff;
+}
+
+#tableDetails tr:hover {
+	background-color: rgba(102, 252, 241, 0.1);
+	transition: 0.2s;
+}
+
+/* Bottone elimina */
+.eliminaCampo {
+	background-color: transparent;
+	border: none;
+	color: #ff5555;
+	font-size: 1.1rem;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+.eliminaCampo:hover {
+	transform: scale(1.2);
+}
+
+/* === SEZIONE DESTRA: FORM === */
+form {
+	flex: 1;
+	min-width: 320px;
+	max-width: 450px;
+}
+
+#tableFormDetails {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: rgba(20, 25, 35, 0.9);
+	border: 1px solid #45a29e;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(102, 252, 241, 0.1);
+}
+
+#tableFormDetails th {
+	background-color: #1f2833;
+	color: #66fcf1;
+	padding: 12px;
+	font-size: 1.2rem;
+	border-bottom: 2px solid #45a29e;
+}
+
+#tableFormDetails td {
+	border: 1px solid #45a29e;
+	padding: 10px;
+	color: #ffffff;
+}
+
+/* Input e bottone nel form */
+#tableFormDetails input {
+	width: 95%;
+	padding: 8px;
+	border: 1px solid #45a29e;
+	background-color: #0b0c10;
+	color: #66fcf1;
+	border-radius: 4px;
+	font-size: 1rem;
+}
+
+#tableFormDetails input:focus {
+	outline: none;
+	box-shadow: 0 0 8px #66fcf1;
+}
+
+#buttonStarship {
+	background-color: #1f2833;
+	color: #66fcf1;
+	border: 1px solid #45a29e;
+	border-radius: 4px;
+	padding: 8px 15px;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.2s;
+	width: 100%;
+}
+
+#buttonStarship:hover {
+	background-color: #0b0c10;
+	color: #ffffff;
+	transform: scale(1.03);
+}
+
+/* === === BARRA DI NAVIGAZIONE CLASS E DETAILS === === */
+#navbar {
+	position: fixed; /* Resta visibile durante lo scroll */
+	top: 0; /* Ancorata in alto */
+	left: 0;
+	width: 100%; /* Larga quanto tutta la finestra */
+	background-color: rgba(15, 20, 25, 0.9); /* Sfondo scuro semi-trasparente */
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 10px 20px;
+	gap: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+	z-index: 1000; /* Sopra a tutti gli altri elementi */
+	backdrop-filter: blur(5px); /* Effetto vetro leggero */
+}
+
+#navbar button {
+	background-color: #1f2833;
+	color: #66fcf1;
+	border: 1px solid #45a29e;
+	border-radius: 4px;
+	padding: 8px 15px;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#navbar button:hover {
+	background-color: #0b0c10;
+	color: #ffffff;
+	transform: scale(1.05);
 }

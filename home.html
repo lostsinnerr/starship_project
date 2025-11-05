@@ -12,8 +12,9 @@
 		<script src="script/functions.js"></script>
 	</head>
 
-	<body>
-		<h1 id="titoloHome">STARSHIPS PROJECT - STAR WARS</h1>
+	<body id="bodyHome">
+		
+		<h1 id="idTitoloHome">STARSHIPS PROJECT - STAR WARS</h1>
 		<div id="divClasse" class="grid"></div>
 
 		<script>
@@ -29,7 +30,7 @@
 					classes.forEach(cls => {
 						$("#divClasse").append(`
 							<div class="riquadroClasse" data-class="${cls}">
-							  <img src="images/${cls.replace(/ /g, '_')}.png" alt="${cls}" onerror="this.src='images/default.png'">
+							  <img src="images/classes/${cls.replace(/ /g, '_')}.png" alt="${cls}" onerror="this.src='images/starships/default.png'">
 							  <p>${cls}</p>
 							</div>
 						`);
