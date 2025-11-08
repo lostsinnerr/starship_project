@@ -30,7 +30,7 @@
 					classes.forEach(cls => {
 						$("#divClasse").append(`
 							<div class="riquadroClasse" data-class="${cls}">
-							  <img src="images/classes/${cls.replace(/ /g, '_')}.png" alt="${cls}" onerror="this.src='images/starships/default.png'">
+							  <img src="images/classes/${cls.replace(/[^a-zA-Z0-9_-]/g, '_')}.png" alt="${cls}" onerror="this.src='images/starships/default.png'">
 							  <p>${cls}</p>
 							</div>
 						`);

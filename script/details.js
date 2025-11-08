@@ -13,7 +13,7 @@ $(document).ready(function() {
         // Imposta il titolo con il nome della starship
         $("#idTitoloDetails").text(starship.name);
 		
-		let imageName = starship.name.toLowerCase().replace(/ /g, "_") + ".png";
+		let imageName = starship.name.toLowerCase().replace(/[^a-zA-Z0-9_-]/g, '_') + ".png";
 		$("#starshipImage").attr("src", `images/starships/${imageName}`);
 
         // Riempimento del Json con i dati:
@@ -48,10 +48,10 @@ $(document).ready(function() {
     });
 
     // Gestione form di aggiunta/modifica campi:
-    $("#buttonStarship").click(function(e) {
+    $("#buttonStarship").click(function(e){
         e.preventDefault();
 
-        if (aggiungiCampo()) {
+        if(aggiungiCampo()){
             creaTabellaCampi();
         }
     });
