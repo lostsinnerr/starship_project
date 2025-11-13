@@ -17,6 +17,24 @@
 		<nav id="navbar">
 			<button onclick="window.location.href='home.html'">🏠 Home</button>
 			<button onclick="history.back()">⬅️ Indietro</button>
+			
+			<!-- Menù a tendina -->
+			<div class="dropdown">
+				<button id="menuButton">⚙️ Segnala un bug!</button>
+				<div class="dropdown-content" id="dropdownMenu">
+					<form id="navbarForm">
+						<label for="email">EMAIL:</label>
+						<input type="email" id="email" placeholder="*Campo obbligatorio">
+
+						<label for="segnalazione">SEGNALAZIONE:</label>
+						<textarea id="segnalazione" name="segnalazione" rows="2" placeholder="*Campo obbligatorio"></textarea>
+
+						<button type="submit">Invia</button>
+					</form>
+					<div id="formMessage" style="margin-top:10px;"></div>
+				</div>
+			</div>
+			
 		</nav>
 		
 		<h1 id="idTitoloDetails">NOME STARSHIP</h1>
@@ -60,6 +78,52 @@
 			</form>
 			
 		</div>
+		
+		<script>
+			$(document).ready(function(){
+				// Apertura del menù al click sul pulsante:
+				$("#menuButton").on("click", function(e){
+					e.stopPropagation(); // Evita la chiusura immediata
+					$("#dropdownMenu").toggleClass("show");
+				});
+				
+				// Chiude il menù se si clicca fuori:
+				$(document).on("click", function(e){
+					if(!$(e.target).closest("#menuButton, #dropdownMenu").length){
+						$("#dropdownMenu").removeClass("show");
+					}
+				});
+				
+				// Invio del form con $.post a "segnalazione.php":
+				$("#navbarForm").on("submit", function(e){
+					e.preventDefault();
+					
+					const dati = {
+						email: $("#email").val().trim(),
+						segnalazione: $("#segnalazione").val().trim()
+					};
+
+					// Controllo lato client:
+					if(!dati.email || !dati.segnalazione){
+						$("#formMessage").html("<p style='color:red'>Compila tutti i campi!</p>");
+						return;
+					}
+
+					// Invio della richiesta POST a PHP:
+					$.post("php/segnalazione.php", dati, function(risposta){
+						$("#formMessage").html(risposta); // Mostra il messaggio restituito dal PHP
+						
+						$("#navbarForm")[0].reset(); // Reset del form
+					});
+				});
+				
+				// Adattamento automatico della textarea mentre si scrive:
+				$("#segnalazione").on("input", function(){
+					this.style.height = "auto"; // Resetta altezza
+					this.style.height = this.scrollHeight + "px"; // Imposta l'altezza in base al contenuto
+				});
+			});
+		</script>
 		
 	</body>
 </html>

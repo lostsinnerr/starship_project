@@ -1,16 +1,17 @@
 // File: "details.js"
 // Dettagli: contiene la gestione di tabella/form del file "details.html"
 
-let campi = {};     // conterrà i dati della starship
+let campi = {}; // Contiene i dati della starship
 
-$(document).ready(function() {
+$(document).ready(function(){
     // Recupero dell'url:
     const params = new URLSearchParams(window.location.search);
     const starshipUrl = params.get("url");
 
-    // Chiamata AJAX verso l’endpoint della starship
+    // Chiamata AJAX verso l’endpoint della starship:
     $.getJSON(starshipUrl, function(starship){
-        // Imposta il titolo con il nome della starship
+		
+        // Imposta il titolo con il nome della starship:
         $("#idTitoloDetails").text(starship.name);
 		
 		let imageName = starship.name.toLowerCase().replace(/[^a-zA-Z0-9_-]/g, '_') + ".png";
@@ -22,7 +23,7 @@ $(document).ready(function() {
 			PRODUTTORE: starship.manufacturer,
 			COSTO: starship.cost_in_credits,
 			LUNGHEZZA: starship.length,
-			VELOCITA_MASSIMA: starship.MGLT,
+			"VELOCITA MASSIMA": starship.MGLT,
 			EQUIPAGGIO: starship.crew,
 			PASSEGGERI: starship.passengers,
 			CLASSE: starship.starship_class
@@ -57,7 +58,7 @@ $(document).ready(function() {
     });
 });
 
-// Funzione per aggiungere o modificare un campo
+// Funzione per aggiungere o modificare un campo:
 function aggiungiCampo(){
     let nomeCampo = $("#nomeCampo").val().trim();
     let valoreCampo = $("#valoreCampo").val().trim();
@@ -66,7 +67,7 @@ function aggiungiCampo(){
 	
     campi[nomeCampo] = valoreCampo;
 	
-    // Reset input
+    // Reset input:
     $("#nomeCampo").val("");
     $("#valoreCampo").val("");
 

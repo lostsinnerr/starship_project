@@ -16,6 +16,11 @@ body {
 	padding: 0;
 }
 
+body::-webkit-scrollbar { /* Rimuove la barra laterale */
+	width: 0;
+	background: transparent;
+}
+
 a, button {
 	color: #66fcf1;
 	text-decoration: none; /* Rimozione sottolineatura */
@@ -334,6 +339,7 @@ form {
 }
 
 /* === === BARRA DI NAVIGAZIONE CLASS E DETAILS === === */
+
 #navbar {
 	position: fixed; /* Resta visibile durante lo scroll */
 	top: 0; /* Ancorata in alto */
@@ -366,4 +372,103 @@ form {
 	background-color: #0b0c10;
 	color: #ffffff;
 	transform: scale(1.05);
+}
+
+/* === MENU A TENDINA NELLA NAVBAR === */
+
+.dropdown {
+	margin-left: auto; /* Spinge il menù tutto a destra */
+	margin-right: 25px; /* Spazio a destra come a sinistra */
+	padding-right: 20px;
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 45px;
+	background-color: rgba(15, 20, 25, 0.95);
+	min-width: 250px;
+	padding: 15px;
+	border: 1px solid #45a29e;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
+	z-index: 999;
+}
+
+/* Classe attiva: mostra il menù */
+.dropdown-content.show {
+	display: block;
+}
+
+/* Form nel menu */
+#navbarForm {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+#navbarForm label {
+	text-align: left;
+	font-size: 0.9rem;
+	color: #66fcf1;
+}
+
+#navbarForm input {
+	font-size: 0.9rem; 
+    font-family: Arial, sans-serif;
+	padding: 6px;
+	border: 1px solid #45a29e;
+	background-color: #0b0c10;
+	color: #66fcf1;
+	border-radius: 4px;
+}
+
+#navbarForm input:focus {
+	outline: none;
+	box-shadow: 0 0 8px #66fcf1;
+}
+
+#navbarForm button {
+	background-color: #1f2833;
+	color: #66fcf1;
+	border: 1px solid #45a29e;
+	border-radius: 4px;
+	padding: 6px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#navbarForm button:hover {
+	background-color: #0b0c10;
+	color: #ffffff;
+	transform: scale(1.05);
+}
+
+/* === Stile textarea nella navbar === */
+#navbarForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    border: 1px solid #45a29e;
+    background-color: #0b0c10;
+    color: #66fcf1;
+    border-radius: 4px;
+    font-size: 0.9rem; 
+    font-family: Arial, sans-serif;
+    resize: none; /* Disabilita la maniglia di ridimensionamento */
+    overflow: hidden; /* Nasconde le barre di scorrimento */
+    min-height: 2.2em;
+    max-height: 6em; /* Limite massimo di altezza */
+    display: block;
+    margin: 0;
+    box-shadow: inset 0 0 5px rgba(102, 252, 241, 0.2);
+}
+
+#navbarForm textarea:focus {
+	outline: none;
+	box-shadow: 0 0 8px #66fcf1;
 }
